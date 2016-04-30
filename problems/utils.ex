@@ -107,7 +107,66 @@ defmodule Utils do
     for n <- list, rem(n, 2) == 0, do: n
   end
 
+  def is_prime?(1) do
+    false
+  end
 
+  def is_prime?(n) do
+    is_prime?(n, 2, 1)
+  end
+
+  defp is_prime?(_, _, 0) do
+    false
+  end
+
+  defp is_prime?(x, f, _) do
+    if f*f > x do
+      true
+    else
+      is_prime?(x, f+1, rem(x, f))
+    end
+  end
+
+  def next_prime(n) do
+    _next_prime(n+1)
+  end
+
+  defp _next_prime(n) do
+    if is_prime?(n) do
+      n
+    else
+      _next_prime(n+1)
+    end
+  end
+
+  def prime_factorization(n) do
+    factors = %{}
+    prime_factorization(n, 2, factors)
+  end
+
+  defp prime_factorization(n, p, factors) do
+    if p*p > n do
+      factors
+    else
+      if is_div?(n, p) do
+        prime_factorization(n/p, p, add_or_update(factors, p))
+      else
+        prime_factorization(n, next_prime(p), factors)
+      end
+    end
+  end
+
+  def add_or_update(map, n) do
+    if !!map[:Integern] do
+      Map.merge(map, %{n: 1})
+    else
+      %{map | n: map[:n] + 1}
+    end
+  end
+
+  def is_div?(x, y) do
+    rem(x, y) == 0
+  end
 
 
 
