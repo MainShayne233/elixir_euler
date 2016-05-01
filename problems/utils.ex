@@ -28,7 +28,6 @@ defmodule Utils do
     false
   end
 
-
   def empty?([]) do
     true
   end
@@ -140,39 +139,52 @@ defmodule Utils do
   end
 
   def prime_factorization(n) do
-    factors = %{}
-    prime_factorization(n, 2, factors)
+    prime_factorization(n, 2, %{})
   end
 
-  defp prime_factorization(n, p, factors) do
-    if p*p > n do
-      factors
+  defp prime_factorization(n, p, map) do
+    if p > n do
+      map
     else
-      if is_div?(n, p) do
-        prime_factorization(n/p, p, add_or_update(factors, p))
+      if is_div(n, p) do
+        prime_factorization(div(n,p), p, increment_or_add(map, p))
       else
-        prime_factorization(n, next_prime(p), factors)
+        prime_factorization(n, next_prime(p), map)
       end
     end
   end
 
-  def add_or_update(map, n) do
-    if !!map[:Integern] do
-      Map.merge(map, %{n: 1})
+  def increment_or_add(map, key) do
+    if map[key] do
+      %{map | key => map[key] + 1}
     else
-      %{map | n: map[:n] + 1}
+      Map.merge(map, %{key => 1})
     end
   end
 
-  def is_div?(x, y) do
+  def is_div(x, y) do
     rem(x, y) == 0
   end
 
+  def intom(n) do
+    String.to_atom(Integer.to_string(n))
+  end
 
+  def str(n) do
+    Integer.to_string(n)
+  end
 
+  def is_palindrome(n) do
+    str(n) == String.reverse(str(n))
+  end
 
+  def num_div_by(list) do
+    num_div_by(list, %{})
+  end
 
+  def num_div_by([], map) do
 
+  end
 
 
 
