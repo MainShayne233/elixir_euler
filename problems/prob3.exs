@@ -1,4 +1,4 @@
-# require Prime
+require Prime
 
 600851475143 |>
 Prime.factorization |>
