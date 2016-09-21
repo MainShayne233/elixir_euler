@@ -6,4 +6,6 @@ sum_of_sqrs = (1..100) |>
               Enum.map(&(:math.pow(&1, 2))) |>
               Enum.reduce(&(&1 + &2))
 
-sqr_of_sum - sum_of_sqrs
+sqr_of_sum - sum_of_sqrs |>
+round |>
+IO.inspect
