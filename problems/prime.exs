@@ -1,24 +1,30 @@
 defmodule Prime do
 
-  def is?(1), do: false
+  def is?(x) when x <= 3, do: x >= 2
+  def is?(5), do: true
 
-  def is?(2), do: true
-
-  def is?(n) do
-    is?(n, 2)
+  def is?(x) when x > 3 do
+    if gcd(x, 30) == 1 do
+      sqrt = (:math.sqrt(x) |> Float.round)
+      check(x, 7, sqrt)
+    else
+      false
+    end
   end
 
-  def is?(n, fac) when fac*fac > n do
-    true
+  def check(_, p, sqrt) when p > sqrt, do: true
+
+  def check(x, p, sqrt) do
+    isnt = rem(x, p)    == 0 or rem(x, p+4)  == 0 or rem(x, p+6)  == 0 or
+           rem(x, p+10) == 0 or rem(x, p+12) == 0 or rem(x, p+16) == 0 or
+           rem(x, p+22) == 0 or rem(x, p+24) == 0
+
+    if isnt, do: false, else: check(x, p+30, sqrt)
   end
 
-  def is?(n, fac) when rem(n, fac) == 0 do
-     false
-  end
-
-  def is?(n, fac) do
-    is?(n, fac+1)
-  end
+  def gcd(0, y), do: y
+  def gcd(x, 0), do: x
+  def gcd(x, y), do: gcd(y, rem(x,y))
 
   def next(n) when rem(n, 2) == 0 do
     if (is?(n+1)), do: n+1, else: next(n+1)
@@ -51,5 +57,14 @@ defmodule Prime do
   def nth(n, n, prime), do: prime
 
   def nth(n, x, prime), do: nth n, x+1, next(prime)
+
+  def all_up_to(n), do: all_up_to n, 3, [2]
+
+  def all_up_to(n, next_prime, primes) when next_prime >= n, do: primes
+
+  def all_up_to(n, next_prime, primes) do
+    all_up_to n, Prime.next(next_prime), primes ++ [next_prime]
+  end
+
 
 end
