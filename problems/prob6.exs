@@ -6,7 +6,7 @@ defmodule Problem6 do
 
   def square_of_sum do
     (1..100)
-    |> Util.sum_of
+    |> Enum.sum
     |> :math.pow(2)
     |> round
   end
@@ -14,7 +14,7 @@ defmodule Problem6 do
   def sum_of_sqares do
     (1..100)
     |> Enum.map( &(:math.pow(&1, 2)) )
-    |> Util.sum_of
+    |> Enum.sum
     |> round
   end
 end

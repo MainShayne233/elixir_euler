@@ -1,10 +1,5 @@
 defmodule Util do
 
-  def sum_of enumeration do
-    enumeration
-    |> Enum.reduce( &(&1 + &2) )
-  end
-
   def product_of enumeration do
     enumeration
     |> Enum.reduce(1, &(&1 * &2) )
@@ -52,6 +47,17 @@ defmodule Util do
     url
     |> HTTPoison.get!
     |> Map.get(:body)
+  end
+
+  def nth_triangle_number(n) when n > 0 do
+    (1..n)
+    |> Enum.sum
+  end
+
+  def divisors_count n do
+    Prime.factorization(n)
+    |> Enum.map( fn {prime, expo} -> expo+1 end)
+    |> product_of
   end
 
 end
