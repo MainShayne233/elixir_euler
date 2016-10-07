@@ -60,4 +60,17 @@ defmodule Util do
     |> product_of
   end
 
+  def factorial 0 do
+    1
+  end
+
+  def factorial n do
+    (1..n)
+    |> product_of
+  end
+
+  def combination n, k do
+    div factorial(n), (factorial(k) * factorial(n - k))
+  end
+
 end

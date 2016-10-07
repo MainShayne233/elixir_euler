@@ -25,7 +25,5 @@ defmodule Problem8 do
   def page do
     "https://projecteuler.net/problem=8"
     |> Util.get_html
-    |> String.split("5832")
-    |> Enum.at(1)
   end
 end
