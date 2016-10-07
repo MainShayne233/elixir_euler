@@ -7,7 +7,6 @@ defmodule Problem5 do
     |> raised_primes
     |> Util.product_of
     |> round
-
   end
 
   def prime_factorizations_of enumeration do

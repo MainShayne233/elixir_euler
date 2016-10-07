@@ -2,12 +2,5 @@
              [{registered,[]},
               {description,"  Yet Another HTTP client for Elixir powered by hackney\n"},
               {vsn,"0.9.2"},
-              {modules,['Elixir.HTTPoison','Elixir.HTTPoison.AsyncChunk',
-                        'Elixir.HTTPoison.AsyncEnd',
-                        'Elixir.HTTPoison.AsyncHeaders',
-                        'Elixir.HTTPoison.AsyncRedirect',
-                        'Elixir.HTTPoison.AsyncResponse',
-                        'Elixir.HTTPoison.AsyncStatus',
-                        'Elixir.HTTPoison.Base','Elixir.HTTPoison.Error',
-                        'Elixir.HTTPoison.Response']},
+              {modules,[]},
               {applications,[kernel,stdlib,elixir,hackney]}]}.
