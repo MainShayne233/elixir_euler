@@ -1,4 +1,9 @@
-(3..999) |>
-Enum.filter(&(rem(&1, 3) == 0 or rem(&1, 5) == 0)) |>
-Enum.reduce(&(&1 + &2)) |>
-IO.inspect
+defmodule Problem1 do
+
+  def solve do
+    (3..999)
+    |> Util.only_multiples_of([3,5])
+    |> Util.sum_of
+  end
+
+end

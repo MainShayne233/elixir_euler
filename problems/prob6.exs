@@ -1,11 +1,20 @@
-sqr_of_sum = (1..100) |>
-             Enum.reduce(&(&1 + &2)) |>
-             :math.pow(2)
+defmodule Problem6 do
 
-sum_of_sqrs = (1..100) |>
-              Enum.map(&(:math.pow(&1, 2))) |>
-              Enum.reduce(&(&1 + &2))
+  def solve do
+    square_of_sum - sum_of_sqares
+  end
 
-sqr_of_sum - sum_of_sqrs |>
-round |>
-IO.inspect
+  def square_of_sum do
+    (1..100)
+    |> Util.sum_of
+    |> :math.pow(2)
+    |> round
+  end
+
+  def sum_of_sqares do
+    (1..100)
+    |> Enum.map( &(:math.pow(&1, 2)) )
+    |> Util.sum_of
+    |> round
+  end
+end

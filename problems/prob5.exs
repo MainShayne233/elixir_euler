@@ -1,11 +1,34 @@
-require Prime
+defmodule Problem5 do
 
-(1..20) |>
-Enum.map(&(Prime.factorization(&1))) |>
-Enum.reduce(%{}, fn (x, map) ->
-  Map.merge x, map, fn (_k, v1, v2) -> if (v1 > v2), do: v1, else: v2 end
-end) |>
-Enum.map( fn ({prime, amt}) -> :math.pow(prime, amt) end) |>
-Enum.reduce(&(&1 * &2)) |>
-round |>
-IO.inspect
+  def solve do
+    (1..20)
+    |> prime_factorizations_of
+    |> merge_factorizations
+    |> raised_primes
+    |> Util.product_of
+    |> round
+
+  end
+
+  def prime_factorizations_of enumeration do
+    enumeration
+    |> Enum.map( &(Prime.factorization(&1)) )
+  end
+
+  def merge_factorizations enumeration do
+    enumeration
+    |> Enum.reduce(%{}, fn (x, map) ->
+      Map.merge(x, map, fn (_k, v1, v2) ->
+        if (v1 > v2), do: v1, else: v2
+      end)
+    end)
+  end
+
+  def raised_primes enumeration do
+    enumeration
+    |> Enum.map(fn ({prime, amt}) ->
+      :math.pow(prime, amt)
+    end)
+  end
+
+end

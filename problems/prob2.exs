@@ -1,6 +1,8 @@
-require Fibonacci
+defmodule Problem2 do
 
-Fibonacci.sequence_up_to(4000000) |>
-Enum.filter(&(rem(&1, 2) == 0)) |>
-Enum.reduce(&(&1 + &2)) |>
-IO.inspect
+  def solve do
+    Fibonacci.sequence_up_to(4000000)
+    |> Util.only_evens
+    |> Util.sum_of
+  end
+end

@@ -1,14 +1,25 @@
-palindrome? = fn (n) ->
-  str = Integer.to_string(n)
-  str == String.reverse str
-end
+defmodule Problem4 do
 
-(100..999) |>
-Enum.map(fn (x) ->
-  (x..999) |>
-  Enum.map(&(&1 * x))
-end) |>
-List.flatten |>
-Enum.filter(palindrome?) |>
-Enum.max |>
-IO.inspect
+  def solve do
+    products
+    |> only_palindromes
+    |> Enum.max
+  end
+
+  def products do
+    (100..999)
+    |> Enum.map(fn (x) ->
+      (x..999)
+      |> Enum.map(&(&1 * x))
+    end)
+    |> List.flatten
+  end
+
+  def only_palindromes enumeration do
+    enumeration
+    |> Enum.filter(&(
+      Util.palindrome?(&1, :integer)
+    ))
+  end
+
+end

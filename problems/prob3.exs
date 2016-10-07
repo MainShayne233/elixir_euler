@@ -1,7 +1,9 @@
-require Prime
+defmodule Problem3 do
 
-600851475143 |>
-Prime.factorization |>
-Map.keys |>
-Enum.max |>
-IO.inspect
+   def solve do
+     600851475143
+     |> Prime.factorization
+     |> Map.keys
+     |> Enum.max
+   end
+end

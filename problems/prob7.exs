@@ -1,4 +1,6 @@
-require Prime
+defmodule Problem7 do
 
-Prime.nth(10001) |>
-IO.inspect
+  def solve do
+    Prime.nth 10001
+  end
+end
