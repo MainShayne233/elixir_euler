@@ -2,5 +2,11 @@
              [{registered,[]},
               {description,"elixir_euler"},
               {vsn,"1.0.0"},
-              {modules,[]},
+              {modules,['Elixir.Fibonacci','Elixir.Prime','Elixir.Problem1',
+                        'Elixir.Problem10','Elixir.Problem11',
+                        'Elixir.Problem12','Elixir.Problem13',
+                        'Elixir.Problem14','Elixir.Problem15',
+                        'Elixir.Problem2','Elixir.Problem3','Elixir.Problem4',
+                        'Elixir.Problem5','Elixir.Problem6','Elixir.Problem7',
+                        'Elixir.Problem8','Elixir.Problem9','Elixir.Util']},
               {applications,[kernel,stdlib,elixir,floki,httpoison]}]}.

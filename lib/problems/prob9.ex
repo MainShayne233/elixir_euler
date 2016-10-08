@@ -13,7 +13,6 @@ defmodule Problem9 do
     |> Enum.map(fn a ->
       (a..a+333)
       |> Enum.map(fn b ->
-        c = 1000 - a - b
         %{
           a: a,
           b: b,

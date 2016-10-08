@@ -1,6 +1,5 @@
 defmodule ElixirEuler.Mixfile do
   use Mix.Project
-
   def application do
     [applications: [:floki, :httpoison]]
   end
@@ -17,4 +16,5 @@ defmodule ElixirEuler.Mixfile do
        {:httpoison, "~> 0.9.0"}
      ]
   end
+
 end

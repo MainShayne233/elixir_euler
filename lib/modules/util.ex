@@ -56,7 +56,7 @@ defmodule Util do
 
   def divisors_count n do
     Prime.factorization(n)
-    |> Enum.map( fn {prime, expo} -> expo+1 end)
+    |> Enum.map( fn {_prime, expo} -> expo+1 end)
     |> product_of
   end
 
