@@ -1,5 +1,4 @@
 defmodule Util do
-
   def product_of enumeration do
     enumeration
     |> Enum.reduce(1, &(&1 * &2) )

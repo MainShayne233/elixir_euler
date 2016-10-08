@@ -9,4 +9,4 @@
                         'Elixir.Problem2','Elixir.Problem3','Elixir.Problem4',
                         'Elixir.Problem5','Elixir.Problem6','Elixir.Problem7',
                         'Elixir.Problem8','Elixir.Problem9','Elixir.Util']},
-              {applications,[kernel,stdlib,elixir,floki,httpoison]}]}.
+              {applications,[kernel,stdlib,elixir,httpoison]}]}.
