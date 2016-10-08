@@ -72,4 +72,10 @@ defmodule Util do
     div factorial(n), (factorial(k) * factorial(n - k))
   end
 
+  def digits n do
+    string = Integer.to_string(n)
+    Regex.scan(~r/\d/, string)
+    |> Enum.map( &(List.first(&1) |> String.to_integer) )
+  end
+
 end
