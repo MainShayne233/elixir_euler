@@ -2,7 +2,7 @@ defmodule Problem21 do
 
   def solve do
     (1..10000)
-    |> Enum.filter( &( amicable?(&1) ) )
+    |> Enum.filter(fn (x) -> amicable?(x) end)
     |> Enum.sum
   end
 
