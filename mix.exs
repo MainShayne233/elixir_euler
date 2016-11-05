@@ -12,7 +12,8 @@ defmodule ElixirEuler.Mixfile do
 
   defp deps do
      [
-       {:httpoison, "~> 0.9.0"}
+       {:httpoison, "~> 0.9.0"},
+       {:calendar,  "~> 0.16.1"}
      ]
   end
 
